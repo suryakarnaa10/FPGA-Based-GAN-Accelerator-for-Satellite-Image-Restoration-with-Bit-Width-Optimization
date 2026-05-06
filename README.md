@@ -132,11 +132,10 @@ The FPGA output is visually indistinguishable from the CPU floating-point refere
 ## Repository Structure
 
 ```
-├── 01_training/          # PyTorch GAN training & quantization notebooks
-├── 02_hls/               # Vitis HLS C++ source (network.cpp, network.h, etc.)
-├── 03_vivado/            # Block design screenshots & resource reports
-├── 04_pynq_deployment/   # PYNQ inference notebooks & benchmarking scripts
-└── 05_results/           # Visualizations and metric outputs
+├── 01-training/          # PyTorch GAN training & quantization notebooks
+├── 02-hls/               # Vitis HLS C++ source (network.cpp, network.h, etc.)
+├── 03-vivado/            # Block design screenshots & resource reports
+└── 04-results/           # Visualizations and metric outputs
 ```
 
 ---
@@ -157,7 +156,7 @@ This project demonstrates that:
 
 1. **HLS makes FPGA deep learning accessible** — going from a PyTorch model to a working bitstream took ~3 weeks, mostly spent on debugging integration rather than HLS code itself.
 2. **Quantization to 10-bit barely affects quality** — 0.15 dB PSNR drop is imperceptible visually, while saving ~3× memory vs FP32.
-3. **DDR streaming is necessary for medium-size models** — KV260's 2.9 MB on-chip memory cannot fit a 13 MB model, but external DDR with proper burst configuration achieves usable throughput.
+3. **DDR streaming is necessary for medium-size models** — KV260's 5.1 MB on-chip memory cannot fit a 13 MB model, but external DDR with proper burst configuration achieves usable throughput.
 4. **Edge FPGAs deliver real speedup AND power efficiency** — 6× faster than the on-board ARM CPU at less than 1 W active power overhead, achieving 10.93 fps/W. This makes the platform ideal for satellites, drones, and remote sensors where both latency and power are constrained.
 
 ---
